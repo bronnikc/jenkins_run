@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+	parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+                }
+    stages{
+       stage('Start preparing with ansible-galaxy') {
+	      steps {
+	            echo "flag: ${params.userFlag}"
+                }
+    }
+		}
+}
