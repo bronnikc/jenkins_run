@@ -1,0 +1,9 @@
+---
+- hosts: db
+  gather_facts: no
+  become: True
+  roles:
+    - role: install_oracle_home
+      become: yes  
+      oracle_dbhome: db_home1
+
