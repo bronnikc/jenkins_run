@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
               echo("stop")
-              echo("go")
+             script{ return }  
             }
         }
         stage('Run Jenkinsfile') {

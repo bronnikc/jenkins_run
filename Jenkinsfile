@@ -5,13 +5,7 @@ pipeline {
 			  string(name: 'ORACLE_HOME', defaultValue: 'db_home2', description: 'The target Oracle_HOME')
 			}
 	stages{
-       stage('Read Jenkinsfile') {
-            when {
-                expression { return parameters.Refresh == true }
-                }
-            steps {
-                echo("Ended pipeline early.")        
-              }     
+		
     stage('Start preparing with ansible-galaxy') {
 	steps {
 	  sh "ansible-galaxy install git+https://git.apps.okd.dcteam.local/oracle-ansible/install_oracle_home.git"
