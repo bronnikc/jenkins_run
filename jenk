@@ -4,11 +4,24 @@ pipeline {
         string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment')
              }
     stages{
-       stage('Start preparing with ansible-galaxy') {
-	      steps {
-	            echo "flag: ${params.DEPLOY_ENV}"
-              echo "flag: ${params.ss}"
-                }
-    }
-		}
-}
+           stage('Read Jenkinsfile') 
+            {
+            when {
+                expression { return parameters.refresh_configure == true }
+               }
+            steps {
+                echo("Ended pipeline early.")        
+                  }
+           }
+           stage('Run Jenkinsfile') {
+            when {
+                expression { return parameters.refresh_configure == false }
+                 }
+             stage('Start preparing with ansible-galaxy') 
+               {
+	                 steps {
+	                     echo "flag: ${params.DEPLOY_ENV}"
+                          }
+               }
+		                                }
+            }
