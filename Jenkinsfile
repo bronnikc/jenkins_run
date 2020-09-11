@@ -19,13 +19,13 @@ pipeline {
 				 expression { return params.refresh_configure == false }
 			}	
 		stages{
-			stage('Get From Git')
+			stage('Get ansible role from Git')
 			{
 			steps {
 					sh "ansible-galaxy install git+https://git.apps.okd.dcteam.local/oracle-ansible/install_oracle_home.git"
 			}
 			}
-			stage('Run playbook')
+			stage('Install ORACLE_HOME')
 			{
 				steps{
 						ansiblePlaybook([
