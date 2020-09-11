@@ -7,7 +7,7 @@ pipeline {
        stage('Start preparing with ansible-galaxy') {
 	      steps {
 	            echo "flag: ${params.DEPLOY_ENV}"
-              echo "flag: ${params.111}"
+              echo "flag: ${params.ss}"
                 }
     }
 		}
