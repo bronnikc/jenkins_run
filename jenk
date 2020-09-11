@@ -17,11 +17,12 @@ pipeline {
             when {
                 expression { return parameters.refresh_configure == false }
                  }
-             stage('Start preparing with ansible-galaxy') 
+                 stages {
+                            stage('Start preparing with ansible-galaxy') 
                {
 	                 steps {
 	                     echo "flag: ${params.DEPLOY_ENV}"
-                          }
-               }
-		                                }
+                           }
+               } }
+		                            }
             }
