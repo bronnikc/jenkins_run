@@ -29,7 +29,7 @@ pipeline {
 			{
 				steps{
 						ansiblePlaybook([
-											playbook: "test.yml",
+											playbook: "install_oracle_home.yml",
 											inventory: "inventory",
 											extraVars: [
 											oracle_dbhome: env.ORACLE_HOME
