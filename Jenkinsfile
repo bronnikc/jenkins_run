@@ -32,7 +32,7 @@ pipeline {
 											playbook: "test.yml",
 											inventory: "inventory",
 											extraVars: [
-											oracle_dbhome: ${params.ORACLE_HOME}
+											oracle_dbhome: env.ORACLE_HOME
 				   									   ]
 		              					])
 				}
