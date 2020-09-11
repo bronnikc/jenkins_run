@@ -2,7 +2,7 @@ pipeline {
     agent any
 	parameters
 			{
-			  string(name: 'ORACLE_HOME', defaultValue: 'db_home2', description: 'The target Oracle_HOME')
+			  string(name: 'ORACLE_HOME', defaultValue: 'db_home1', description: 'The target Oracle_HOME')
 			}
 	stages{
 		stage('Read Jenkinsfile') {
