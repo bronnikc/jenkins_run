@@ -1,28 +1,40 @@
 pipeline {
     agent any
-	parameters {
-        string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment')
-             }
-    stages{
-           stage('Read Jenkinsfile') 
-            {
+    parameters {
+        booleanParam(name: 'Refresh',
+                    defaultValue: false,
+                    description: 'Read Jenkinsfile and exit.')
+    }
+    stages {
+        stage('Read Jenkinsfile') {
             when {
-                expression { return parameters.refresh_configure == true }
-               }
-            steps {
-                echo("Ended pipeline early.")        
-                  }
-           }
-           stage('Run Jenkinsfile') {
-            when {
-                expression { return parameters.refresh_configure == false }
-                 }
-                 stages {
-                            stage('Start preparing with ansible-galaxy') 
-               {
-	                 steps {
-	                     echo "flag: ${params.DEPLOY_ENV}"
-                           }
-               } }
-		                            }
+                expression { return params.refresh_configure == true }
             }
+            steps {
+              echo("stop")
+            }
+        }
+        stage('Run Jenkinsfile') {
+            when {
+                expression { return params.refresh_configure == false }
+            }
+            stages {
+              stage('Build') {
+                  steps {
+                    echo("build")
+                  }
+              }
+              stage('Test') {
+                  steps {
+                    echo("test")
+                  }
+              }
+              stage('Deploy') {
+                  steps {
+                    echo("deploy")
+                  }
+              }
+            }
+        }
+    }
+}
