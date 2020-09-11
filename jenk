@@ -3,7 +3,6 @@ pipeline {
 	parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
         string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment')
-        string(name: 'DEPLOYss_ENV', defaultValue: 'TESTING', description: 'The target environment')
              }
     stages{
        stage('Start preparing with ansible-galaxy') {
