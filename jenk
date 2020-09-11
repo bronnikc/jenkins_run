@@ -1,7 +1,6 @@
 pipeline {
     agent any
 	parameters {
-        booleanParam(defaultValue: true, description: '', name: 'userFlag')
         string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment')
              }
     stages{
