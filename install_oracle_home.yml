@@ -1,9 +1,16 @@
 ---
+- hosts: localhost
+  #become: True
+  tasks:
+    -  add_host:
+       name: "add host to inventory"
+       ansible_host: {{ HOST_ADDRESS }}
+       ansible_user: 'ansible'
+       groups:
+         - "db" 
 - hosts: db
-  gather_facts: no
-  become: True
   roles:
     - role: install_oracle_home
       become: yes  
-      oracle_dbhome: db_home1
+      #oracle_dbhome: db_home1
 
