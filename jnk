@@ -1,8 +1,5 @@
 pipeline {
     agent any
-	def choice = input message: '<message>',
-    parameters: [choice(choices: "choice1\nchoice2\nchoice3\nchoice4\n",
-    description: 'Choose an option', name: 'Options')]
     parameters
 			{
 			  string(name: 'ORACLE_HOME', defaultValue: 'db_home1', description: 'The target Oracle_HOME')
@@ -11,17 +8,15 @@ pipeline {
 		stage('Read Jenkinsfile') 
         {
             steps {
-                     script 
-                     {
-                         ORACLE_HOME='gg'
-                     }  
-                  }
+                     env.RESP1 = input message: '<message>', parameters: [string(defaultValue: '', description: 'Enter response 1',name: 'RESPONSE1')]
+                  }  
+                  
         }
         stage('Show d')
         {
             steps
             {
-                echo  "${ORACLE_HOME}"
+                echo "${env.RESP1}"
             }
         }
     }
