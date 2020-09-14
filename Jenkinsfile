@@ -3,6 +3,7 @@ pipeline {
 	parameters
 			{
 			  string(name: 'ORACLE_HOME', defaultValue: 'db_home1', description: 'The target Oracle_HOME')
+			  string(name: 'HOST_ADDRESS', description: 'The target HOST IP')
 			}
 	stages{
 		stage('Read Jenkinsfile') {
