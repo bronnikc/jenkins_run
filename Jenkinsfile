@@ -33,7 +33,8 @@ pipeline {
 											playbook: "install_oracle_home.yml",
 											inventory: "inventory",
 											extraVars: [
-											oracle_dbhome: env.ORACLE_HOME
+											oracle_dbhome: env.ORACLE_HOME,
+											host_address: env.HOST_ADDRESS 
 				   									   ]
 		              					])
 				}

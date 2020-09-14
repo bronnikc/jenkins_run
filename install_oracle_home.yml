@@ -4,7 +4,7 @@
   tasks:
     -  add_host:
        name: "add host to inventory"
-       ansible_host: {{ HOST_ADDRESS }}
+       ansible_host: {{ host_address }}
        ansible_user: 'ansible'
        groups:
          - "db" 
