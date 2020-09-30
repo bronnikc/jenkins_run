@@ -14,7 +14,6 @@
       become: yes  
     - role: install_patch  
     - role: create_oracle_database
-      become: yes  
-    -  
+      become: yes
       #oracle_dbhome: db_home1
 
