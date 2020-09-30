@@ -12,5 +12,9 @@
   roles:
     - role: install_oracle_home
       become: yes  
+    - role: install_patch  
+    - role: create_oracle_database
+      become: yes  
+    -  
       #oracle_dbhome: db_home1
 
