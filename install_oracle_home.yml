@@ -11,20 +11,20 @@
   vars:
     display_output: true
   roles:
-    - role: install_oracle_home
-      type_install: 'db_single'
-    - role: install_patch 
-      type_install_patch: 'db_single'
-      opatch_update: true
-      home:
-        oracle_dbhome: "{{ oracle_dbhome }}"
-        type_home: 'DB'
-        oracle_version: '12.2'
-      patch:
-        archive_url: "http://cloud.dcteam.ru/s/Ay5XufMvWFmXz2H/download"
-        temp_dir: '/tmp'
-        patch_id: 31305382
-        patch_number: [31312468,31309299] 
+   # - role: install_oracle_home
+    #  type_install: 'db_single'
+    #- role: install_patch 
+     # type_install_patch: 'db_single'
+     # opatch_update: true
+     # home:
+     #   oracle_dbhome: "{{ oracle_dbhome }}"
+     #   type_home: 'DB'
+     #   oracle_version: '12.2'
+     # patch:
+     #   archive_url: "http://cloud.dcteam.ru/s/Ay5XufMvWFmXz2H/download"
+     #   temp_dir: '/tmp'
+     #   patch_id: 31305382
+     #   patch_number: [31312468,31309299] 
     - role: create_oracle_database
       become: yes
 
