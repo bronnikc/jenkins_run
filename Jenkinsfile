@@ -27,16 +27,17 @@ pipeline {
 		{
 			when {
 				 expression { return params.refresh_configure == false }
-				 }	
-	stage('Get ansible role from Git')
-		 {
+			}	
+		stages{
+			stage('Get ansible role from Git')
+			{
 			steps {
 					sh "ansible-galaxy install -f git+https://git.apps.okd.dcteam.local/oracle-ansible/install_oracle_home.git"
 					sh "ansible-galaxy install -f git+http://git.apps.okd.dcteam.local/oracle-ansible/create_oracle_database.git"
 					sh "ansible-galaxy install -f git+http://git.apps.okd.dcteam.local/oracle-ansible/install_patch.git"
 				 }
-		 }
-	stage('Install ORACLE_HOME')
+			}
+			stage('Install ORACLE_HOME')
 			{
 				steps{
 						ansiblePlaybook([
@@ -56,7 +57,7 @@ pipeline {
 		              					])
 				}
 			} 
-		
+		}
 		}
 	}
 }
