@@ -24,7 +24,7 @@
         archive_url: "http://cloud.dcteam.ru/s/Ay5XufMvWFmXz2H/download"
         temp_dir: '/tmp'
         patch_id: 31305382
-        patch_number: [31312468,31309299] 
+        patch_number: [31312468] 
     - role: create_oracle_database
       become: yes
 
